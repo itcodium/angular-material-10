@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon
+      *ngIf="icon"
+      mat-card-avatar
+      aria-hidden="false"
+      aria-label="Example home icon"
+    >{{icon}}</mat-icon>
+    <mat-card-title>
+      {{ title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ description}}
+
+      <button
+        mat-raised-button
+        color="primary"
+      >Primary</button>
+    </mat-card-subtitle>
+
+
+  </mat-card-header>
+
+
+  <!--
+
+<div class="container-module-title">
+  <p ng-show="description">{{description}}</p>
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="action in actions"
+    >
+      <button
+        mat-button
+        color="primary"
+      >Primary</button>
+    </li>
+  </ul>
+
+</div>
+-->
+</mat-card>
