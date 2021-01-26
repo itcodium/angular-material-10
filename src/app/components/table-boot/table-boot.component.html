@@ -1,0 +1,18 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th *ngFor="let col of columns">{{col.title}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of data">
+                <td *ngFor="let col of columns">
+                    <span *ngIf="col.type!='image'">{{row[col.field]}}</span>
+                    <span *ngIf="col.type=='image'"> <img [width]="col.width"
+                             [src]="getSantizeUrl(row,col.field)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

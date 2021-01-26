@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 @Component({
   selector: 'module-title',
   templateUrl: './ModuleTitle.html',
@@ -7,34 +6,47 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ModuleTitle implements OnInit {
   @Input() title: String;
-  @Input() titleKey: String;
   @Input() description: String;
-  @Input() descriptionKey: String;
-  @Input() actions: object[];
   @Input() icon: String;
-  @Input() state: String;
-  @Input() isFetching: Boolean;
-
+  oldTitle: String;
   constructor() { }
-
+  // https://git-scm.com/book/en/v2/Git-Tools-Submodules
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(`ngOnChanges => `, changes.title, this.title);
+  }
   ngOnInit(): void {
+    this.oldTitle = this.title;
+    console.log(`OnInit => `, this.title);
+  }
+  ngDoCheck() {
+    if (this.oldTitle !== this.title) {
+      console.log(`ngDoCheck => `, this.oldTitle, this.title);
+      this.oldTitle = this.title;
+    }
   }
 
-  getPropertyForType(type) {
-    if (type && this.state)
-      switch (type) {
-        case 'label':
-          return this.state;
-        case 'style':
-          switch (this.state) {
-            case 'draft':
-              return 'info';
-            case 'uat':
-              return 'warning';
-            case 'publish':
-              return 'success';
-          }
-          break;
-      }
+  ngAfterContentInit() {
+    console.log(`ngAfterContentInit => `, this.title);
   }
+
+  ngAfterContentChecked() {
+    console.log(`ngAfterContentChecked => `, this.title);
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit: ', this.title);
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked: ', this.title);
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy: ', this.title);
+  }
+
+  changeTitle() {
+    this.title = this.title + " +";
+  }
+
 }

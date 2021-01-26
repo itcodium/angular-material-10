@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "my-angular-app2"
+  "defaultProject": "my-angular-app2",
+  "cli": {
+    "analytics": false
+  }
 }

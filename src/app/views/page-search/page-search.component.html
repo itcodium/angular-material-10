@@ -1,0 +1,14 @@
+<div class="container clearfix">
+    <h1 id="logo">Buscador</h1>
+</div>
+<br>
+<app-input-text [placeHolder]="'Search for an anime, e.g Naruto'" [value]="" buttontext="Search"
+                (submit)="onSubmit($event)"></app-input-text>
+
+<table-boot *ngIf="data.length" [columns]=columns [data]=data></table-boot>
+
+<div *ngIf="!data.length && loading" class="d-flex justify-content-center p-4">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
