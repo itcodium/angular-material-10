@@ -5,7 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ModuleTitle } from './ModuleTitle/ModuleTitle';
 import { InputTextComponent } from './input-text/input-text.component';
@@ -18,9 +19,11 @@ import { MatTableModule } from '@angular/material/table';
     RouterModule,
     MatIconModule,
     MatCardModule,
+    MatInputModule,
     MatButtonModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   exports: [
     ModuleTitle,

@@ -3,10 +3,11 @@
         <h1 id="logo">Buscador</h1>
     </div>
     <br>
-    <app-input-text [placeHolder]="'Search for an anime, e.g Naruto'" [value]="" buttontext="Search"
-        (submit)="onSubmit($event)"></app-input-text>
-
-
+    <mat-card>
+        <app-input-text [placeHolder]="'Search for an anime, e.g Naruto'" [value]="" buttontext="Search"
+            (submit)="onSubmit($event)"></app-input-text>
+    </mat-card>
+    <br>
     <table-boot [columns]=columns [data]=data></table-boot>
 
     <div *ngIf="!data.length && loading" class="d-flex justify-content-center p-4">
