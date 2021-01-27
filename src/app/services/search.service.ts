@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 
 export class SearchService {
-  private api = 'https://api.jikan.moe/v3/search/anime?limit=4';
+  private api = 'https://api.jikan.moe/v3/search/anime?limit=12';
 
   constructor(private http: HttpClient) { }
 

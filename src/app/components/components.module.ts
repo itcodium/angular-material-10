@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
+
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { ModuleTitle } from './ModuleTitle/ModuleTitle';
 import { InputTextComponent } from './input-text/input-text.component';
 import { TableBootComponent } from './table-boot/table-boot.component';
@@ -17,7 +19,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     ModuleTitle,
