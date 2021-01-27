@@ -1,7 +1,7 @@
 <mat-form-field class="example-form-field">
     <mat-label>{{placeHolder}}</mat-label>
     <input matInput type="search" #input (keyup.enter)="update(input.value)">
-    <button mat-button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <button mat-button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear" (click)="input.value=''">
         <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>
