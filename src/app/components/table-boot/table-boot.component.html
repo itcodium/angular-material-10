@@ -1,10 +1,35 @@
 <div *ngIf="data.length" class="mat-elevation-z8">
+    <mat-card>
+        <h2>Angular</h2>
+    </mat-card>
+    <table mat-table [dataSource]="dataSource">
+        <ng-container *ngFor="let col of columns" matColumnDef="{{col.field}}">
+            <th mat-header-cell *matHeaderCellDef>{{col.title}}</th>
+            <td mat-cell *matCellDef="let element">
+                <span *ngIf="col.type!='image'">{{element[col.field]}}</span>
+                <span *ngIf="col.type=='image'"> <img [width]="col.width"
+                        [src]="getSantizeUrl(element,col.field)"></span>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="showFirstLastButtons">
+    </mat-paginator>
+
+</div>
+
+<br>
+<br>
+
+<div *ngIf="data.length" class="mat-elevation-z8">
 
     <mat-card>
         <h2>Custom</h2>
     </mat-card>
 
-    <table matSort (matSortChange)="sortData($event)" class="mat-table cdk-table">
+    <table matSort class="mat-table cdk-table">
         <thead role="rowgroup">
             <tr class="mat-header-row cdk-header-row ng-star-inserted">
                 <th class="mat-header-cell cdk-header-cell cdk-column-position mat-column-position ng-star-inserted"
@@ -23,29 +48,4 @@
             </tr>
         </tbody>
     </table>
-</div>
-
-<br>
-<br>
-
-<div *ngIf="data.length" class="mat-elevation-z8">
-
-    <mat-card>
-        <h2>Angular</h2>
-    </mat-card>
-    <table mat-table [dataSource]="data">
-        <ng-container *ngFor="let col of columns" matColumnDef="{{col.field}}">
-            <th mat-header-cell *matHeaderCellDef>{{col.title}}</th>
-            <td mat-cell *matCellDef="let element">
-                <span *ngIf="col.type!='image'">{{element[col.field]}}</span>
-                <span *ngIf="col.type=='image'"> <img [width]="col.width"
-                        [src]="getSantizeUrl(element,col.field)"></span>
-            </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [length]="data.length" [pageSize]="2" [pageSizeOptions]="[1, 2, 4, 5]">
-    </mat-paginator>
-
 </div>
