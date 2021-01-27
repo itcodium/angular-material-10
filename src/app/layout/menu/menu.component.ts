@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MenuApp } from '../menu.service';
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,9 @@ import { MenuApp } from '../menu.service';
 export class MenuComponent implements OnInit {
 
   constructor(private menuApp: MenuApp) { }
-
+  links = [{ "path": "/input", text: "Input" },
+  { "path": "/table", text: "Table" },
+  { "path": "/search", text: "Search" }];
   ngOnInit() {
   }
   close() {

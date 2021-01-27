@@ -4,12 +4,15 @@ import { ComponentsModule } from '../components/components.module';
 import { PageInputComponent } from './page-input/page-input.component';
 import { PageTableComponent } from './page-table/page-table.component';
 import { PageSearchComponent } from './page-search/page-search.component';
+import { MatCardModule } from '@angular/material/card';
+
 import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
+        MatCardModule,
         ComponentsModule
     ],
     exports: [

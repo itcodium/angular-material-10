@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 import { MenuApp } from './../menu.service';
 
 @Component({

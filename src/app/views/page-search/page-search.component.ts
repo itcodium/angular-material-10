@@ -35,6 +35,4 @@ export class PageSearchComponent implements OnInit {
     { field: 'rated', title: 'Puntuacion', visible: true },
     { field: 'episodes', title: 'Capitulos', visible: true },
   ];
-
-
 }

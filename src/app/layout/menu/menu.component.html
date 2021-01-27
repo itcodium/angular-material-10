@@ -1,11 +1,3 @@
-<ul class="list-group text-primary" (click)="close()">
-    <li class="list-group-item bg-transparent text-primary">
-        <a class="nav-link" routerLink="/input" routerLinkActive="active">Input Text</a>
-    </li>
-    <li class="list-group-item bg-transparent text-primary">
-        <a class="nav-link" routerLink="/table">Table</a>
-    </li>
-    <li class="list-group-item bg-transparent text-primary">
-        <a class="nav-link" routerLink="/search">Api Search</a>
-    </li>
-</ul>
+<mat-nav-list (click)="close()">
+    <a mat-list-item routerLink="{{link.path}}" *ngFor="let link of links"> {{ link.text }} </a>
+</mat-nav-list>

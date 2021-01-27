@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
+/*
+export interface Employee {
+  name: string;
+  id: number;
+  location: string;
+}
+*/
 @Component({
   selector: 'page-table',
   templateUrl: './page-table.component.html',
   styleUrls: ['./page-table.component.scss']
 })
+
+
 export class PageTableComponent implements OnInit {
   columns = [
     { field: 'id', title: 'Id', visible: true },
@@ -13,7 +21,7 @@ export class PageTableComponent implements OnInit {
     { field: 'fake', title: 'Fake', visible: false },
   ];
 
-  employee = [
+  employee: object[] = [
     {
       "id": 1,
       "name": "Admin",
@@ -30,7 +38,6 @@ export class PageTableComponent implements OnInit {
       "location": "USA"
     }
   ]
-
   constructor() {
   }
 
