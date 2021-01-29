@@ -10,17 +10,14 @@ import { catchError } from 'rxjs/operators';
 
 export class SearchService {
   private api = 'https://api.jikan.moe/v3/search/anime?limit=12';
-
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {
+  }
   search(filter: string): Observable<object[]> {
     let url = this.api + "&q=" + filter;
-    console.log("url", url)
     return this.http.get<object[]>(url).pipe(
       catchError(this.handleError('search', []))
     );
   }
-
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -28,3 +25,4 @@ export class SearchService {
     };
   }
 }
+
