@@ -1,25 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { PageTableComponent } from './page-table.component';
 
-describe('PageTableComponent', () => {
-  let component: PageTableComponent;
-  let fixture: ComponentFixture<PageTableComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [PageTableComponent]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageTableComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('Page Table Component', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        PageTableComponent
+      ],
+    }).compileComponents();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(PageTableComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
+
 });

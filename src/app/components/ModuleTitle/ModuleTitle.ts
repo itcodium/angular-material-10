@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'module-title',
   templateUrl: './ModuleTitle.html',

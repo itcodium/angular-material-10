@@ -1,15 +1,11 @@
 <mat-card>
-    <div class="container clearfix">
-        <h1 id="logo">Buscador</h1>
-    </div>
-    <br>
     <mat-card>
+        <h1>Buscador</h1>
         <app-input-text [placeHolder]="'Search for an anime, e.g Naruto'" [value]="" buttontext="Search"
             (submit)="onSubmit($event)"></app-input-text>
     </mat-card>
     <br>
     <table-boot [columns]=columns [data]=data></table-boot>
-
     <div *ngIf="!data.length && loading" class="d-flex justify-content-center p-4">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>

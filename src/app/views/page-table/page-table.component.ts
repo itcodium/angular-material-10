@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-/*
-export interface Employee {
-  name: string;
-  id: number;
-  location: string;
-}
-*/
+
 @Component({
   selector: 'page-table',
   templateUrl: './page-table.component.html',

@@ -1,25 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { PageInputComponent } from './page-input.component';
-
-describe('PageInputComponent', () => {
-  let component: PageInputComponent;
-  let fixture: ComponentFixture<PageInputComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [PageInputComponent]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageInputComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+describe('Page Input Component', () => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        PageInputComponent
+      ],
+    }).compileComponents();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(PageInputComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
+
 });
