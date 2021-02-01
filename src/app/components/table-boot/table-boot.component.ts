@@ -60,10 +60,5 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
     if (this.end > this.data.length) {
       this.end = this.data.length;
     }
-    console.log('start, end: ', this.start, this.end);
-    console.log('this.pageIndex: ', this.pageIndex);
-    //this.dataSource = this.data.slice(start, end);
-
   }
-
 }

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { PageTableComponent } from './page-table.component';
 
-describe('Page Table Component', () => {
+describe('View Table', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [

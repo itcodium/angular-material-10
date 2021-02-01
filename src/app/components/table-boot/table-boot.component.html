@@ -17,11 +17,10 @@
     <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
         [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="showFirstLastButtons">
     </mat-paginator>
-
 </div>
 <br>
 <br>
-<div *ngIf="data.length" class="mat-elevation-z8">
+<div class="mat-elevation-z8">
     <mat-card>
         <h2>Custom</h2>
     </mat-card>
