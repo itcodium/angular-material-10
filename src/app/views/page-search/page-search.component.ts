@@ -9,20 +9,19 @@ import { SearchService } from '../../services/search.service';
 })
 export class PageSearchComponent implements OnInit {
   @Input() value: string;
-  data: [];
+  data: object[];
   loading = false;
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit() {
-    this.loading = true;
-    this.searchService.search("naruto")
-      .subscribe(response => {
-        this.loading = false;
-        this.data = response["results"];
-      })
+    this.getList("naruto");
   }
   onSubmit(filter: string) {
+    this.getList(filter);
+  }
+
+  getList(filter) {
     this.data = [];
     this.loading = true;
     this.value = filter;

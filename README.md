@@ -1,10 +1,9 @@
 # AngularMaterial10
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.1.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
 ## Code scaffolding
 
@@ -22,10 +21,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 export CHROME_BIN=/usr/bin/chromium-browser
 ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
 ng e2e --protractor-config=e2e/protractor-ci.conf.js
+
+
+https://www.youtube.com/watch?v=C2pON0Q-PjE&list=PL8jcXf-CLpxolmjV5_taFP0c5LyCveDF1&index=8
+https://angular.io/api/platform-browser/By

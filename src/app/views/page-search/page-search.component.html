@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card>
-        <h1>Buscador</h1>
+        <h2>Buscador de anime</h2>
+        <button routerLink="input">+</button>
         <app-input-text [placeHolder]="'Search for an anime, e.g Naruto'" [value]="" buttontext="Search"
             (submit)="onSubmit($event)"></app-input-text>
     </mat-card>

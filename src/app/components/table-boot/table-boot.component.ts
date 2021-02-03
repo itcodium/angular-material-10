@@ -10,9 +10,10 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./table-boot.component.scss']
 })
 export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
-  @Input() columns: any[];
-  @Input() data: object[];
+  @Input() columns: any[] = [];
+  @Input() data: object[] = [];
   oldDataLength: number;
+  pageIndexOLD: number;
   dataSource = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -25,11 +26,13 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   start = 0;
   end = this.pageSize;
   ngAfterViewInit() {
-    this.dataSource = this.data;
+
+
   }
 
   displayedColumns: string[];
   constructor(private sanitizer: DomSanitizer) {
+
   }
   ngOnInit() {
     this.oldDataLength = this.data.length;
@@ -38,6 +41,8 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
     }).map(column => {
       return column["field"];
     });
+    this.length = this.data.length;
+    this.dataSource = this.data.slice(this.start, this.end)
   }
 
   getSantizeUrl(data: object, name: string) {
@@ -45,16 +50,15 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngDoCheck() {
-    this.dataSource = this.data.slice(this.start, this.end);
-    this.length = this.data.length;
+    if (this.pageIndexOLD != this.pageIndex) {
+      this.pageIndexOLD = this.pageIndex;
+      this.dataSource = this.data.slice(this.start, this.end);
+    }
   }
-
-
   handlePageEvent(event: PageEvent) {
     this.length = event.length;
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
-
     this.start = event.pageSize * event.pageIndex;
     this.end = this.start + event.pageSize;
     if (this.end > this.data.length) {

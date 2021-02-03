@@ -1,7 +1,37 @@
+<div class="mat-elevation-z8">
+    <mat-card>
+        <h2>Angular {{dataSource.length}}</h2>
+    </mat-card>
+    <table matSort class="mat-table cdk-table">
+        <thead role="rowgroup">
+            <tr class="mat-header-row cdk-header-row ng-star-inserted">
+                <th class="mat-header-cell cdk-header-cell cdk-column-position mat-column-position ng-star-inserted"
+                    *ngFor="let col of columns">
+                    {{col.title}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="mat-row cdk-row " *ngFor="let row of dataSource">
+                <td class="mat-cell cdk-cell" *ngFor="let col of columns">
+                    <span *ngIf="col.type!='image'">{{row[col.field]}}</span>
+                    <span *ngIf="col.type=='image'"> <img [width]="col.width"
+                            [src]="getSantizeUrl(row,col.field)"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="showFirstLastButtons">
+    </mat-paginator>
+</div>
+
+<!--
 <div *ngIf="data.length" class="mat-elevation-z8">
     <mat-card>
-        <h2>Angular</h2>
+        <h2>Angular {{dataSource.length}}</h2>
     </mat-card>
+  
     <table mat-table [dataSource]="dataSource">
         <ng-container *ngFor="let col of columns" matColumnDef="{{col.field}}">
             <th mat-header-cell *matHeaderCellDef>{{col.title}}</th>
@@ -14,33 +44,5 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
-        [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="showFirstLastButtons">
-    </mat-paginator>
 </div>
-<br>
-<br>
-<div class="mat-elevation-z8">
-    <mat-card>
-        <h2>Custom</h2>
-    </mat-card>
-    <table matSort class="mat-table cdk-table">
-        <thead role="rowgroup">
-            <tr class="mat-header-row cdk-header-row ng-star-inserted">
-                <th class="mat-header-cell cdk-header-cell cdk-column-position mat-column-position ng-star-inserted"
-                    *ngFor="let col of columns">
-                    {{col.title}}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="mat-row cdk-row " *ngFor="let row of data">
-                <td class="mat-cell cdk-cell" *ngFor="let col of columns">
-                    <span *ngIf="col.type!='image'">{{row[col.field]}}</span>
-                    <span *ngIf="col.type=='image'"> <img [width]="col.width"
-                            [src]="getSantizeUrl(row,col.field)"></span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+-->
