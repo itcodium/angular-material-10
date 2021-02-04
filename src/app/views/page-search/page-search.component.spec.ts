@@ -6,27 +6,26 @@ import { SearchService } from 'src/app/services/search.service';
 import { Observable, of } from 'rxjs';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Component } from '@angular/core';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 describe('View Search', () => {
   let component: PageSearchComponent;
   let fixture: ComponentFixture<PageSearchComponent>;
+  let animeServiceMock: any;
 
   beforeEach(async () => {
+    animeServiceMock = jasmine.createSpyObj('SearchService', ['search'])
+    animeServiceMock.search.and.returnValue(of([]));
     await TestBed.configureTestingModule({
-      declarations: [PageSearchComponent, DummyComponent],
+      declarations: [PageSearchComponent],
       imports: [
         HttpClientModule,
-        RouterTestingModule.withRoutes([{
-          path: 'input', component: DummyComponent
-        }
-        ])
+        RouterTestingModule
       ],
-
       providers: [
-        { provide: SearchService, useClass: SearchServiceStub }
+        { provide: SearchService, useValue: animeServiceMock }
       ]
     })
       .compileComponents();
@@ -59,14 +58,19 @@ describe('View Search', () => {
     expect(location.path()).toBe('');
   });
   it('should navigate to /input on + button click', () => {
-    const location = TestBed.inject(Location)
+    const router = TestBed.inject(Router);
+    spyOn(router, 'navigateByUrl');
     const linkDes = fixture.debugElement.queryAll(By.css('button'));
     const nativeButton: HTMLButtonElement = linkDes[0].nativeElement;
     nativeButton.click();
-    fixture.detectChanges();
-    fixture.whenStable().then(() => {
-      expect(location.path()).toBe('/input');
-    });
+    expect(router.navigateByUrl).
+      toHaveBeenCalledWith(router.createUrlTree(['/input']),
+        {
+          skipLocationChange: false,
+          replaceUrl: false,
+          state: undefined
+        });
+
   });
   it('should show one app-input-text', () => {
     const input = fixture.debugElement.queryAll(By.css('app-input-text'));
@@ -76,30 +80,9 @@ describe('View Search', () => {
     const table = fixture.debugElement.queryAll(By.css('table-boot'));
     expect(table.length).toBe(0);
   });
-
-  /*
-  it('should show a table', () => {
-    component.data = mock;
-    fixture.detectChanges();
-    const table = fixture.debugElement.queryAll(By.css('table-boot'));
-    expect(table.length).toBe(1);
-  });*/
-
-
 });
 
-
-@Component({ template: '' })
-class DummyComponent { }
-
-class SearchServiceStub {
-  search(filter: string = ""): Observable<object[]> {
-    return of([]);
-  }
-}
-
-
-const mock = [{
+const animeServiceMock = [{
   "mal_id": 20,
   "url": "https:\/\/myanimelist.net\/anime\/20\/Naruto",
   "image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/13\/17405.jpg?s=59241469eb470604a792add6fbe7cce6",

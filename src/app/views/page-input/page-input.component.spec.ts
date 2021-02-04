@@ -15,8 +15,17 @@ describe('View Input', () => {
 
   it('should create', () => {
     const fixture = TestBed.createComponent(PageInputComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    const component = fixture.componentInstance;
+    expect(component).toBeTruthy();
+  });
+  it('should set value on submit', () => {
+    const fixture = TestBed.createComponent(PageInputComponent);
+    const component = fixture.componentInstance;
+    const TEST_VALUE = "Test Submit";
+    component.onSubmit(TEST_VALUE);
+    fixture.detectChanges();
+    expect(TEST_VALUE).toBe(component.value);
+
   });
 
 });

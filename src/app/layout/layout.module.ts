@@ -11,7 +11,7 @@ import { MatListModule } from '@angular/material/list';
 
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MenuApp } from './menu.service';
+import { MenuApp } from './service/menu.service';
 
 import { MatButtonModule } from '@angular/material/button';
 

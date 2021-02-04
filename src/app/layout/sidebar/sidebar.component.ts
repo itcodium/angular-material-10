@@ -1,22 +1,20 @@
-import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MatCardModule } from '@angular/material/card';
-import { MenuApp } from './../menu.service';
+import { MenuApp } from './../service/menu.service';
 
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
   showFiller: boolean;
   @ViewChild('sidenav') sidenav: MatSidenav;
   constructor(private menuApp: MenuApp) { }
-  ngOnInit() { }
   ngAfterViewInit() {
     this.menuApp.setDrawer(this.sidenav);
   }
-  close() {
-    this.sidenav.close();
+  getMenu() {
+    return this.menuApp.getDrawer();
   }
 }

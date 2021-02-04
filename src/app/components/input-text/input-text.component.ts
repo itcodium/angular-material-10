@@ -11,14 +11,20 @@ export class InputTextComponent implements OnInit {
   @Input() placeHolder: string;
 
   @Output() submit = new EventEmitter<string>();
-
+  defaultHolder: string = "";
+  defaultbuttontext: string = "Aceptar";
   constructor() { }
 
   ngOnInit() {
-    this.buttontext = this.buttontext ? this.buttontext : "Aceptar";
-    this.placeHolder = this.placeHolder ? this.placeHolder : "";
+    this.setButtonText();
+    this.setPlaceHolderText();
   }
-
+  setButtonText() {
+    this.buttontext = this.buttontext ? this.buttontext : this.defaultbuttontext;
+  }
+  setPlaceHolderText() {
+    this.placeHolder = this.placeHolder ? this.placeHolder : this.defaultHolder;
+  }
   update(value: string) {
     this.submit.emit(value);
   }

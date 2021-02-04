@@ -23,10 +23,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 
 
-export CHROME_BIN=/usr/bin/chromium-browser
+
+export CHROME_BIN=/snap/bin/chromium
+ng test --code-coverage
 ng test --no-watch --no-progress --browsers=ChromeHeadlessCI
 ng e2e --protractor-config=e2e/protractor-ci.conf.js
-
+/home/pablo/Documents/itcodium/angular-material-10/src/test.ts
 
 https://www.youtube.com/watch?v=C2pON0Q-PjE&list=PL8jcXf-CLpxolmjV5_taFP0c5LyCveDF1&index=8
 https://angular.io/api/platform-browser/By

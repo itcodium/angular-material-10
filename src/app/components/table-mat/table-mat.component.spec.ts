@@ -1,23 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TableBootComponent } from './table-boot.component';
+import { TableMatComponent } from './table-mat.component';
 import { SearchService } from 'src/app/services/search.service';
 import { HttpClientModule } from '@angular/common/http';
-import { By } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
-import { Component } from '@angular/core';
-
-import { MatRowHarness, MatTableHarness } from '@angular/material/table/testing';
-
 import { HarnessLoader } from '@angular/cdk/testing';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 
 let loader: HarnessLoader;
 // https://codecraft.tv/courses/angular/unit-testing/asynchronous/
 
-describe('TableBoot', () => {
-    let component: TableBootComponent;
-    let fixture: ComponentFixture<TableBootComponent>;
+describe('TableMat', () => {
+    let component: TableMatComponent;
+    let fixture: ComponentFixture<TableMatComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -26,61 +21,28 @@ describe('TableBoot', () => {
                 HttpClientModule
             ],
             declarations: [
-                TableBootComponent
+                TableMatComponent
             ],
             providers: [
                 { provide: SearchService, useClass: SearchServiceStub }
             ]
         }).compileComponents();
-        fixture = TestBed.createComponent(TableBootComponent);
+        fixture = TestBed.createComponent(TableMatComponent);
         loader = TestbedHarnessEnvironment.loader(fixture);
         component = fixture.componentInstance;
         component.columns = columns;
         component.data = data;
         fixture.detectChanges();
-
     });
 
-
     it('should create', () => {
-        const fixture = TestBed.createComponent(TableBootComponent);
+        const fixture = TestBed.createComponent(TableMatComponent);
         const app = fixture.componentInstance;
         expect(app).toBeTruthy();
     });
 
-
-    it('should have title', () => {
-        const element = fixture.debugElement.query(By.css('h2'));
-        expect(element.nativeElement.textContent).toBe("Angular 2");
-    });
-
-    it('should have table', () => {
-        const element = fixture.debugElement.query(By.css('table'));
-        expect(element).toBeTruthy();
-    });
-    it('should have Table body', () => {
-        const element = fixture.debugElement.query(By.css('table tbody'));
-        expect(element).toBeTruthy();
-    });
-
-    it('should have 2 rows', () => {
-        const rows = fixture.debugElement.queryAll(By.css('.mat-table tbody tr'));
-        expect(rows.length).toBe(2);
-    });
-
-    it('should go next page', () => {
-        component.handlePageEvent(event);
-        fixture.detectChanges();
-        const rows = fixture.debugElement.queryAll(By.css('.mat-table tbody tr'));
-        expect(rows.length).toBe(1);
-    });
 });
 
-const event = {
-    length: 2,
-    pageSize: 2,
-    pageIndex: 1
-}
 const columns = [
     { field: 'id', title: 'Id', visible: true },
     { field: 'name', title: 'Nombre', visible: true },

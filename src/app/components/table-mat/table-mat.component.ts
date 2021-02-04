@@ -1,14 +1,15 @@
 import { Component, AfterViewInit, ViewChild, OnInit, Input, DoCheck } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: 'table-boot',
-  templateUrl: './table-boot.component.html',
-  styleUrls: ['./table-boot.component.scss']
+  selector: 'table-Mat',
+  templateUrl: './table-mat.component.html',
+  styleUrls: ['./table-mat.component.scss']
 })
-export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
+export class TableMatComponent implements OnInit, DoCheck, AfterViewInit {
   @Input() columns: any[] = [];
   @Input() data: object[] = [];
   oldDataLength: number;
@@ -24,12 +25,15 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   showFirstLastButtons = true;
   start = 0;
   end = this.pageSize;
-  ngAfterViewInit() { }
+  ngAfterViewInit() {
+
+
+  }
 
   displayedColumns: string[];
+  constructor(private sanitizer: DomSanitizer) {
 
-  constructor(private sanitizer: DomSanitizer) { }
-
+  }
   ngOnInit() {
     this.oldDataLength = this.data.length;
     this.displayedColumns = this.columns.filter(col => {
