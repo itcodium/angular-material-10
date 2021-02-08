@@ -109,4 +109,7 @@ mat-table {
  .mat-table-fixed-layout {
   table-layout:fixed
  }
- 
+
+ button[mat-raised-button] {
+   margin-right: 10px;
+ }

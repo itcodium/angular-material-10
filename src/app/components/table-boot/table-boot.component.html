@@ -14,9 +14,27 @@
         <tbody>
             <tr class="mat-row cdk-row " *ngFor="let row of dataSource">
                 <td class="mat-cell cdk-cell" *ngFor="let col of columns">
-                    <span *ngIf="col.type!='image'">{{row[col.field]}}</span>
-                    <span *ngIf="col.type=='image'"> <img [width]="col.width"
-                            [src]="getSantizeUrl(row,col.field)"></span>
+                    <ng-container [ngSwitch]="col.type">
+                        <div *ngSwitchCase="'edit'">
+                          <button mat-raised-button color="primary">
+                            Editar
+                            <mat-icon aria-hidden="false" aria-label="home icon">mode</mat-icon>
+                          </button>
+                          <button mat-raised-button color="warn">
+                            Eliminar
+                            <mat-icon aria-hidden="false" aria-label="trash icon">delete</mat-icon>
+                          </button>
+                        </div>
+
+                        <span *ngSwitchCase="'image'">
+                          <img
+                            [width]="col.width"
+                            [src]="getSantizeUrl(row,col.field)"
+                          />
+                        </span>
+
+                        <span *ngSwitchDefault>{{row[col.field]}}</span>
+                    </ng-container>
                 </td>
             </tr>
         </tbody>
