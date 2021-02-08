@@ -41,13 +41,11 @@ describe('TableBoot', () => {
 
     });
 
-
     it('should create', () => {
         const fixture = TestBed.createComponent(TableBootComponent);
         const app = fixture.componentInstance;
         expect(app).toBeTruthy();
     });
-
 
     it('should have title', () => {
         const element = fixture.debugElement.query(By.css('h2'));

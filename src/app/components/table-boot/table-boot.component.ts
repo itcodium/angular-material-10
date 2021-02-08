@@ -46,19 +46,23 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngDoCheck() {
-    if (this.pageIndexOLD != this.pageIndex) {
+    if (this.pageIndexOLD !== this.pageIndex) {
       this.pageIndexOLD = this.pageIndex;
       this.dataSource = this.data.slice(this.start, this.end);
     }
   }
+
   handlePageEvent(event: PageEvent) {
     this.length = event.length;
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.start = event.pageSize * event.pageIndex;
     this.end = this.start + event.pageSize;
+
     if (this.end > this.data.length) {
       this.end = this.data.length;
     }
+
+    this.dataSource = this.data.slice(this.start, this.end);
   }
 }
