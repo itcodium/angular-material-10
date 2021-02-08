@@ -72,6 +72,10 @@ describe('TableBoot', () => {
         const rows = fixture.debugElement.queryAll(By.css('.mat-table tbody tr'));
         expect(rows.length).toBe(1);
     });
+
+    it('Should show two buttons.', () => {})
+
+    it('Should not render any buttons.', () => {})
 });
 
 const event = {
@@ -84,6 +88,7 @@ const columns = [
     { field: 'name', title: 'Nombre', visible: true },
     { field: 'location', title: 'Ubicacion', visible: true },
     { field: 'fake', title: 'Fake', visible: false },
+    { title: 'Editar', visible: true, type: 'edit' },
 ];
 
 const data = [

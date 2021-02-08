@@ -26,7 +26,7 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   end = this.pageSize;
   ngAfterViewInit() { }
 
-  displayedColumns: string[];
+  displayedColumns: any[];
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -35,7 +35,7 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
     this.displayedColumns = this.columns.filter(col => {
       return col.visible == true;
     }).map(column => {
-      return column["field"];
+      return column;
     });
     this.length = this.data.length;
     this.dataSource = this.data.slice(this.start, this.end)

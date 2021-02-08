@@ -6,14 +6,14 @@
         <thead role="rowgroup">
             <tr class="mat-header-row cdk-header-row ng-star-inserted">
                 <th class="mat-header-cell cdk-header-cell cdk-column-position mat-column-position ng-star-inserted"
-                    *ngFor="let col of columns">
+                    *ngFor="let col of displayedColumns">
                     {{col.title}}
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr class="mat-row cdk-row " *ngFor="let row of dataSource">
-                <td class="mat-cell cdk-cell" *ngFor="let col of columns">
+                <td class="mat-cell cdk-cell" *ngFor="let col of displayedColumns">
                     <ng-container [ngSwitch]="col.type">
                         <div *ngSwitchCase="'edit'">
                           <button mat-raised-button color="primary">
