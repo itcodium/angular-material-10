@@ -4,6 +4,7 @@ import { ComponentsModule } from '../components/components.module';
 import { PageInputComponent } from './page-input/page-input.component';
 import { PageTableComponent } from './page-table/page-table.component';
 import { PageSearchComponent } from './page-search/page-search.component';
+import { TableCrudComponent } from './table-crud/table-crud.component';
 import { MatCardModule } from '@angular/material/card';
 
 import { RouterModule } from '@angular/router';
@@ -18,12 +19,14 @@ import { RouterModule } from '@angular/router';
     exports: [
         PageInputComponent,
         PageTableComponent,
-        PageSearchComponent
+        PageSearchComponent,
+        TableCrudComponent
     ],
     declarations: [
         PageInputComponent,
         PageTableComponent,
-        PageSearchComponent
+        PageSearchComponent,
+        TableCrudComponent
     ]
 })
 export class ViewsModule { }

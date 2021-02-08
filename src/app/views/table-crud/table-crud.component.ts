@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+
 @Component({
-  selector: 'page-table',
-  templateUrl: './page-table.component.html',
-  styleUrls: ['./page-table.component.scss']
+  selector: 'table-crud',
+  templateUrl: './table-crud.component.html',
+  styleUrls: ['./table-crud.component.scss']
 })
-
-
-export class PageTableComponent implements OnInit {
+export class TableCrudComponent implements OnInit {
+  constructor() {
+  }
+  ngOnInit() {
+  }
   columns = [
     { field: 'id', title: 'Id', visible: true },
     { field: 'name', title: 'Nombre', visible: true },
@@ -32,10 +34,4 @@ export class PageTableComponent implements OnInit {
       "location": "USA"
     }
   ]
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
-}
+} 

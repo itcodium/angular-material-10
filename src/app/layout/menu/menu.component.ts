@@ -10,6 +10,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private menuApp: MenuApp) { }
   links = [{ "path": "/input", text: "Input" },
+  { "path": "/tablecrud", text: "Crud" },
   { "path": "/table", text: "Table" },
   { "path": "/search", text: "Search" }];
   ngOnInit() {
