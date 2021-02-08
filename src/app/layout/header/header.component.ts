@@ -7,5 +7,5 @@ import { MenuApp } from '../service/menu.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private menuApp: MenuApp) { }
+  constructor(public menuApp: MenuApp) { }
 }

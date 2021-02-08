@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "CHROME_BIN=/snap/bin/chromium ng test",
+    "cover": "CHROME_BIN=/snap/bin/chromium ng test --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
