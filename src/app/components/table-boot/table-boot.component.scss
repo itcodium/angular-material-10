@@ -1,7 +1,7 @@
-
-mat-table {
-  display:block
- }
+table { 
+	width: 100%; 
+	border-collapse: collapse; 
+}
  mat-header-row {
   min-height:56px
  }
@@ -9,7 +9,7 @@ mat-table {
  mat-footer-row {
   min-height:48px
  }
-
+ 
  mat-row,
  mat-header-row,
  mat-footer-row {
@@ -20,6 +20,7 @@ mat-table {
   align-items:center;
   box-sizing:border-box
  }
+
  mat-row::after,
  mat-header-row::after,
  mat-footer-row::after {
@@ -27,6 +28,7 @@ mat-table {
   min-height:inherit;
   content:""
  }
+
  mat-cell:first-of-type,
  mat-header-cell:first-of-type,
  mat-footer-cell:first-of-type {
@@ -63,6 +65,9 @@ mat-table {
   min-height:inherit
  }
   
+
+
+
  table.mat-table {
   border-spacing:0px
  }
@@ -114,6 +119,7 @@ mat-table {
   padding-right:0px;
   padding-left:24px
  }
+
  .mat-table-sticky {
   position:-webkit-sticky !important;
   position:sticky !important
@@ -121,7 +127,10 @@ mat-table {
  .mat-table-fixed-layout {
   table-layout:fixed
  }
-
+ 
+ mat-paginator{
+   display: block;
+ }
  button[mat-raised-button] {
    margin-right: 10px;
  }

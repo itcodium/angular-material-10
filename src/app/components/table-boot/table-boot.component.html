@@ -1,8 +1,5 @@
 <div class="mat-elevation-z8">
-    <mat-card>
-        <h2>Angular {{dataSource.length}}</h2>
-    </mat-card>
-    <table matSort class="mat-table cdk-table">
+    <table class="mat-table cdk-table">
         <thead role="rowgroup">
             <tr class="mat-header-row cdk-header-row ng-star-inserted">
                 <th class="mat-header-cell cdk-header-cell cdk-column-position mat-column-position ng-star-inserted"
@@ -31,9 +28,13 @@
                     </ng-container>
                 </td>
             </tr>
+            <tr>
+                <td [attr.colspan]="displayedColumns.length">
+                    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="showFirstLastButtons">
+                    </mat-paginator>
+                </td>
+            </tr>
         </tbody>
     </table>
-    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
-        [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="showFirstLastButtons">
-    </mat-paginator>
 </div>
