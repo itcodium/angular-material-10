@@ -14,7 +14,7 @@ export class TableCrudComponent implements OnInit {
     { field: 'id', title: 'Id', visible: true },
     { field: 'name', title: 'Nombre', visible: true },
     { field: 'location', title: 'Ubicacion', visible: true },
-    { field: 'fake', title: 'Fake', visible: false },
+    { title: 'Editar', visible: true, type: 'edit' },
   ];
 
   employee: object[] = [
