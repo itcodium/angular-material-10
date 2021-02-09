@@ -2,6 +2,8 @@ import { Component, AfterViewInit, ViewChild, OnInit, Input, DoCheck } from '@an
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatPaginator } from '@angular/material/paginator';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { Dialog } from '../Modal/Dialog';
 
 @Component({
   selector: 'table-boot',
@@ -15,9 +17,9 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   pageIndexOLD: number;
   dataSource = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  constructor(public dialog: MatDialog, private sanitizer: DomSanitizer) { }
 
   length = null;
-
   pageSize = 2;
   pageIndex = 0;
   pageSizeOptions = [1, 2, 4];
@@ -28,7 +30,12 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
 
   displayedColumns: any[];
 
-  constructor(private sanitizer: DomSanitizer) { }
+  openDialog() {
+    const dialogRef = this.dialog.open(Dialog);
+    /* dialogRef.afterClosed().subscribe(result => {
+       console.log(`Dialog result: ${result}`);
+     });*/
+  }
 
   ngOnInit() {
     this.oldDataLength = this.data.length;

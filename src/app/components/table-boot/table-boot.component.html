@@ -13,10 +13,10 @@
                 <td class="mat-cell cdk-cell" *ngFor="let col of displayedColumns">
                     <ng-container [ngSwitch]="col.type">
                         <div *ngSwitchCase="'edit'">
-                            <button mat-icon-button>
+                            <button mat-icon-button (click)="openDialog()">
                                 <mat-icon aria-hidden="false" aria-label="edit icon">edit</mat-icon>
                             </button>
-                            <button mat-icon-button>
+                            <button mat-icon-button (click)="openDialog()">
                                 <mat-icon aria-hidden="false" aria-label="trash icon">delete</mat-icon>
                             </button>
                         </div>
