@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { BookComponent } from './book/book.component'
+import { FormComponent } from './form/form.component'
 
+import { BookService } from './service/bookService'
 @Component({
   selector: 'table-crud',
   templateUrl: './table-crud.component.html',
   styleUrls: ['./table-crud.component.scss']
 })
 export class TableCrudComponent implements OnInit {
-  constructor() {
+  formBook = BookComponent;
+  form = FormComponent;
+
+  constructor(public bookService: BookService) {
   }
   ngOnInit() {
   }

@@ -1,7 +1,7 @@
 
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ProfileHostDirective } from './ViewContainerRef';
-import { ProfileService } from './ProfileService';
+import { ProfileService } from '../service/profileService';
 import { mergeMap, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -14,22 +14,18 @@ export class ProfileComponent implements OnInit, OnDestroy {
   @ViewChild(ProfileHostDirective, { static: true })
   profileHost: ProfileHostDirective;
   private destroySubject = new Subject();
-  url: string;
+  component: string;
 
   constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
-    /*const viewContainerRef = this.profileHost.viewContainerRef;
-    this.url = "app-test-one";
-    this.profileService.loadComponent(viewContainerRef, this.url)
-    */
     const viewContainerRef = this.profileHost.viewContainerRef;
-    this.profileService.url$
+    this.profileService.component$
       .pipe(
         takeUntil(this.destroySubject),
-        mergeMap(url => {
-          console.log('pipe url: ', url);
-          return this.profileService.loadComponent(viewContainerRef, url)
+        mergeMap(component => {
+          console.log('pipe url: ', component);
+          return this.profileService.loadComponent(viewContainerRef, component)
         }
         )
       ).subscribe();

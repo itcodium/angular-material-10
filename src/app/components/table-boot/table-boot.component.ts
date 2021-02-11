@@ -3,21 +3,28 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatPaginator } from '@angular/material/paginator';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { Dialog } from '../Modal/Dialog';
+import { Dialog } from './modal/dialog';
+import { ProfileService } from './service/profileService';
 
 @Component({
   selector: 'table-boot',
   templateUrl: './table-boot.component.html',
   styleUrls: ['./table-boot.component.scss']
 })
+
+
 export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   @Input() columns: any[] = [];
   @Input() data: object[] = [];
+
+  @Input() component: object;
+  @Input() service: object;
+
   oldDataLength: number;
   pageIndexOLD: number;
   dataSource = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor(public dialog: MatDialog, private sanitizer: DomSanitizer) { }
+  constructor(public dialog: MatDialog, private profileService: ProfileService, private sanitizer: DomSanitizer) { }
 
   length = null;
   pageSize = 2;
@@ -26,15 +33,26 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
   showFirstLastButtons = true;
   start = 0;
   end = this.pageSize;
-  ngAfterViewInit() { }
+  ngAfterViewInit() {
+    //console.log('ngAfterViewInit: ');
+    //this.service["close"]();
+  }
 
   displayedColumns: any[];
 
   openDialog() {
-    const dialogRef = this.dialog.open(Dialog);
-    /* dialogRef.afterClosed().subscribe(result => {
-       console.log(`Dialog result: ${result}`);
-     });*/
+    const dialogRef = this.dialog.open(Dialog, {
+      data: { component: this.component, service: this.service },
+    });
+    dialogRef.afterClosed().subscribe(
+      result => {
+        console.log(`Dialog result: ${result}`);
+        // this.service["close"]();
+        //console.log('this.component: ', this.component);
+        //this.component["close"]();
+
+      }
+    );
   }
 
   ngOnInit() {
@@ -46,6 +64,7 @@ export class TableBootComponent implements OnInit, DoCheck, AfterViewInit {
     });
     this.length = this.data.length;
     this.dataSource = this.data.slice(this.start, this.end)
+
   }
 
   getSantizeUrl(data: object, name: string) {

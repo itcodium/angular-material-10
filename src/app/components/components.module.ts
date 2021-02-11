@@ -9,15 +9,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModuleTitle } from './ModuleTitle/ModuleTitle';
 import { InputTextComponent } from './input-text/input-text.component';
 import { TableBootComponent } from './table-boot/table-boot.component';
-import { Dialog } from './Modal/Dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { TestOneComponent } from './test-one/test-one.component';
-import { TestTwoComponent } from './test-two/test-two.component';
-import { ProfileComponent } from './profile/profile.component';
-import { ProfileHostDirective } from './profile/ViewContainerRef';
+import { Dialog } from './table-boot/modal/dialog';
+import { ProfileComponent } from './table-boot/profile/profile.component';
+import { ProfileHostDirective } from './table-boot/profile/ViewContainerRef';
+
 
 @NgModule({
   imports: [
@@ -43,8 +42,6 @@ import { ProfileHostDirective } from './profile/ViewContainerRef';
     InputTextComponent,
     TableBootComponent,
     Dialog,
-    TestOneComponent,
-    TestTwoComponent,
     ProfileComponent,
     ProfileHostDirective
   ]
