@@ -6,3 +6,13 @@
         <p *ngIf="value">{{value}}</p>
     </mat-card-content>
 </mat-card>
+<mat-card>
+    <mat-card-title>Paginador</mat-card-title>
+    <mat-card-content>
+        <app-pager [totalItems]="5" pageSize="10" [currentPage]="1"></app-pager>
+        <app-pager [totalItems]="40" pageSize="5" [currentPage]="4"></app-pager>
+        <app-pager [totalItems]="20" pageSize="5" [currentPage]="2"></app-pager>
+        <app-pager [totalItems]="41" pageSize="4" [currentPage]="2"></app-pager>
+        <app-pager [totalItems]="80" pageSize="4" [currentPage]="15"></app-pager>
+    </mat-card-content>
+</mat-card>

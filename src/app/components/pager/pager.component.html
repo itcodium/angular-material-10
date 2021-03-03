@@ -1,0 +1,12 @@
+<ul class="pagination" *ngIf="totalItems>pageSize">
+    <li class="page">
+        <a class="prev" [ngClass]="{ 'disabled': currentPage === 1}" (click)="prev()" tabindex="-1">Anterior</a>
+    </li>
+    <li class="page" [ngClass]="{ 'border': !isElipsis(page), 'active':  currentPage==page}" (click)="changePage(page)"
+        *ngFor="let page of pages">
+        <a> {{ isElipsis(page) ? "...": page}}</a>
+    </li>
+    <li class="page">
+        <a class="next" [ngClass]="{ 'disabled': currentPage === totalPages}" (click)="next()">Siguiente</a>
+    </li>
+</ul>

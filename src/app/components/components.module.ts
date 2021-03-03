@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModuleTitle } from './ModuleTitle/ModuleTitle';
 import { InputTextComponent } from './input-text/input-text.component';
+import { PagerComponent } from './pager/pager.component';
 import { TableBootComponent } from './table-boot/table-boot.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -34,12 +35,14 @@ import { ProfileHostDirective } from './table-boot/profile/ViewContainerRef';
   exports: [
     ModuleTitle,
     InputTextComponent,
+    PagerComponent,
     TableBootComponent,
     Dialog,
   ],
   declarations: [
     ModuleTitle,
     InputTextComponent,
+    PagerComponent,
     TableBootComponent,
     Dialog,
     ProfileComponent,

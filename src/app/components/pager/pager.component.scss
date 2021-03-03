@@ -1,0 +1,30 @@
+  .pagination {
+    display: inline-block;
+    list-style: none;
+  }
+  
+  .page {
+    float: left;
+    margin-right: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: white;
+    color: #056dae;
+  }
+  .prev,.next{
+    background-color: white;
+    text-decoration: underline;
+    color: #056dae;
+  }
+  .active{
+    background-color: #056dae;
+    color: white;
+  }
+  .border{
+    border: solid 1px #056dae;
+  }
+  .disabled{
+    color: var(--Dark-Gray);
+    text-decoration: none;
+  }
+  
